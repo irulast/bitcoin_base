@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:bitcoin_base/src/bitcoin/constant/constant.dart';
 import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
+import 'package:tuple/tuple.dart';
 import 'script.dart';
 
 /// A transaction input requires a transaction id of a UTXO and the index of that UTXO.
@@ -45,7 +46,7 @@ class TxInput {
     return data;
   }
 
-  static (TxInput, int) fromRaw(
+  static Tuple2<TxInput, int> fromRaw(
       {required String raw, int cursor = 0, bool hasSegwit = false}) {
     final txInputRaw = hexToBytes(raw);
     Uint8List inpHash = Uint8List.fromList(
@@ -58,12 +59,12 @@ class TxInput {
         txInputRaw.sublist(cursor + 32, cursor + 36).reversed.toList());
     cursor += 36;
     final vi = viToInt(txInputRaw.sublist(cursor, cursor + 9));
-    cursor += vi.$2;
-    Uint8List unlockingScript = txInputRaw.sublist(cursor, cursor + vi.$1);
-    cursor += vi.$1;
+    cursor += vi.item2;
+    Uint8List unlockingScript = txInputRaw.sublist(cursor, cursor + vi.item1);
+    cursor += vi.item1;
     Uint8List sequenceNumberData = txInputRaw.sublist(cursor, cursor + 4);
     cursor += 4;
-    return (
+    return Tuple2(
       TxInput(
           txId: bytesToHex(inpHash),
           txIndex: int.parse(bytesToHex(outputN), radix: 16),

@@ -4,6 +4,7 @@ import 'package:convert/convert.dart';
 
 // ignore: implementation_imports
 import 'package:pointycastle/src/utils.dart' as p_utils;
+import 'package:tuple/tuple.dart';
 
 String bytesToHex(
   List<int> bytes,
@@ -129,12 +130,12 @@ Uint8List prependVarint(Uint8List data) {
   return Uint8List.fromList([...varintBytes, ...data]);
 }
 
-(int, int) viToInt(Uint8List byteint) {
+Tuple2<int,int> viToInt(Uint8List byteint) {
   int ni = byteint[0];
   int size = 0;
 
   if (ni < 253) {
-    return (ni, 1);
+    return Tuple2(ni, 1);
   }
 
   if (ni == 253) {
@@ -147,7 +148,7 @@ Uint8List prependVarint(Uint8List data) {
 
   int value =
       ByteData.sublistView(byteint, 1, 1 + size).getInt64(0, Endian.little);
-  return (value, size + 1);
+  return Tuple2(value, size + 1);
 }
 
 Uint8List packUint32LE(int value) {

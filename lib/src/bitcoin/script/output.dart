@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:bitcoin_base/src/bitcoin/script/script.dart';
 import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
+import 'package:tuple/tuple.dart';
 
 /// Represents a transaction output.
 ///
@@ -25,7 +26,7 @@ class TxOutput {
     return data;
   }
 
-  static (TxOutput, int) fromRaw(
+  static Tuple2<TxOutput, int> fromRaw(
       {required String raw, required int cursor, bool hasSegwit = false}) {
     final txoutputraw = hexToBytes(raw);
     int value = ByteData.sublistView(txoutputraw, cursor, cursor + 8)
@@ -33,10 +34,10 @@ class TxOutput {
     cursor += 8;
 
     final vi = viToInt(txoutputraw.sublist(cursor, cursor + 9));
-    cursor += vi.$2;
-    Uint8List lockScript = txoutputraw.sublist(cursor, cursor + vi.$1);
-    cursor += vi.$1;
-    return (
+    cursor += vi.item2;
+    Uint8List lockScript = txoutputraw.sublist(cursor, cursor + vi.item1);
+    cursor += vi.item1;
+    return Tuple2(
       TxOutput(
           amount: BigInt.from(value),
           scriptPubKey: Script.fromRaw(

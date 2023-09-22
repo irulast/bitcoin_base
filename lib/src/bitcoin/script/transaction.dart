@@ -60,39 +60,39 @@ class BtcTransaction {
       cursor += 2;
     }
     final vi = viToInt(rawtx.sublist(cursor, cursor + 9));
-    cursor += vi.$2;
+    cursor += vi.item2;
 
     List<TxInput> inputs = [];
-    for (int index = 0; index < vi.$1; index++) {
+    for (int index = 0; index < vi.item1; index++) {
       final inp =
           TxInput.fromRaw(raw: raw, hasSegwit: hasSegwit, cursor: cursor);
-      inputs.add(inp.$1);
-      cursor = inp.$2;
+      inputs.add(inp.item1);
+      cursor = inp.item2;
     }
 
     List<TxOutput> outputs = [];
     final viOut = viToInt(rawtx.sublist(cursor, cursor + 9));
-    cursor += viOut.$2;
-    for (int index = 0; index < viOut.$1; index++) {
+    cursor += viOut.item2;
+    for (int index = 0; index < viOut.item1; index++) {
       final inp =
           TxOutput.fromRaw(raw: raw, hasSegwit: hasSegwit, cursor: cursor);
-      outputs.add(inp.$1);
-      cursor = inp.$2;
+      outputs.add(inp.item1);
+      cursor = inp.item2;
     }
     List<TxWitnessInput> witnesses = [];
     if (hasSegwit) {
       for (int n = 0; n < inputs.length; n++) {
         final wVi = viToInt(rawtx.sublist(cursor, cursor + 9));
-        cursor += wVi.$2;
+        cursor += wVi.item2;
         List<String> witnessesTmp = [];
-        for (int n = 0; n < wVi.$1; n++) {
+        for (int n = 0; n < wVi.item1; n++) {
           Uint8List witness = Uint8List(0);
           final wtVi = viToInt(rawtx.sublist(cursor, cursor + 9));
-          if (wtVi.$1 != 0) {
-            witness =
-                rawtx.sublist(cursor + wtVi.$2, cursor + wtVi.$1 + wtVi.$2);
+          if (wtVi.item1 != 0) {
+            witness = rawtx.sublist(
+                cursor + wtVi.item2, cursor + wtVi.item1 + wtVi.item2);
           }
-          cursor += wtVi.$1 + wtVi.$2;
+          cursor += wtVi.item1 + wtVi.item2;
           witnessesTmp.add(bytesToHex(witness));
         }
         witnesses.add(TxWitnessInput(stack: witnessesTmp));

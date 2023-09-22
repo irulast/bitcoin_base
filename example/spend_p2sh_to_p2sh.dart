@@ -11,8 +11,9 @@ import 'transactions/utxo.dart';
 // need segwit pub key
 // output pay-to-pubkey-hash
 // input pay-to-witness-pubkey-hash
+import 'package:tuple/tuple.dart';
 
-(String, String) spendP2shToP2sh({
+Tuple2<String, String> spendP2shToP2sh({
   required ECPublic receiver,
   required ECPublic senderPub,
   required NetworkInfo networkType,
@@ -75,5 +76,5 @@ import 'transactions/utxo.dart';
         sighash: sighash,
         trSize: tx.getVSize());
   }
-  return (tx.serialize(), tx.txId());
+  return Tuple2(tx.serialize(), tx.txId());
 }

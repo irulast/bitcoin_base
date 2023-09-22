@@ -6,6 +6,8 @@ import 'package:bitcoin_base/src/bitcoin/script/output.dart';
 import 'package:bitcoin_base/src/bitcoin/script/script.dart';
 import 'package:bitcoin_base/src/bitcoin/script/transaction.dart';
 import 'package:bitcoin_base/src/crypto/ec/ec_public.dart';
+import 'package:tuple/tuple.dart';
+
 import './utxo.dart';
 
 // from segwit to P2pkhAddress
@@ -13,7 +15,7 @@ import './utxo.dart';
 // output pay-to-pubkey-hash
 // input pay-to-witness-pubkey-hash
 
-(String, String) spendP2shToP2sh({
+Tuple2<String, String> spendP2shToP2sh({
   required ECPublic receiver,
   required ECPublic senderPub,
   required NetworkInfo networkType,
@@ -76,5 +78,5 @@ import './utxo.dart';
         sighash: sighash,
         trSize: tx.getVSize());
   }
-  return (tx.serialize(), tx.txId());
+  return Tuple2(tx.serialize(), tx.txId());
 }

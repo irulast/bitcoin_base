@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
+import 'package:tuple/tuple.dart';
 
 enum Bech32Type {
   bech32(1),
@@ -72,7 +73,7 @@ String _bech32Encode(String hrp, List<int> data, Bech32Type spec) {
   return encoded;
 }
 
-(String, List<int>, Bech32Type)? _bech32Decode(String bech) {
+Tuple3<String, List<int>, Bech32Type>? _bech32Decode(String bech) {
   if (bech.runes.any((x) => x < 33 || x > 126) ||
       (bech.toLowerCase() != bech && bech.toUpperCase() != bech)) {
     return null;
@@ -95,13 +96,13 @@ String _bech32Encode(String hrp, List<int> data, Bech32Type spec) {
   if (spec == null) {
     return null;
   }
-  return (hrp, data.sublist(0, data.length - 6), spec);
+  return Tuple3(hrp, data.sublist(0, data.length - 6), spec);
 }
 
-(int, List<int>)? decodeBech32(String address) {
+Tuple2<int, List<int>>? decodeBech32(String address) {
   final decodeBech = _bech32Decode(address);
   if (decodeBech == null) return null;
-  final data = decodeBech.$2;
+  final data = decodeBech.item2;
   final bits = convertBits(data.sublist(1), 5, 8, pad: false);
   if (bits == null || bits.length < 2 || bits.length > 40) {
     return null;
@@ -112,12 +113,12 @@ String _bech32Encode(String hrp, List<int> data, Bech32Type spec) {
   if (data[0] == 0 && bits.length != 20 && bits.length != 32) {
     return null;
   }
-  final spec = decodeBech.$3;
+  final spec = decodeBech.item3;
   if (data[0] == 0 && spec != Bech32Type.bech32 ||
       data[0] != 0 && spec != Bech32Type.bech32M) {
     return null;
   }
-  return (data[0], bits);
+  return Tuple2(data[0], bits);
 }
 
 String? encodeBech32(String hrp, int version, Uint8List data) {

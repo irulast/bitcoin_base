@@ -1,6 +1,5 @@
 import 'package:bitcoin_base/bitcoin_base.dart';
 import 'package:bitcoin_base/src/models/network.dart';
-import 'package:flutter_test/flutter_test.dart';
 import './transactions/spend_p2kh_to_p2k.dart';
 import './transactions/spend_p2kh_to_p2kh.dart';
 import './transactions/spend_p2pk_to_p2pkh.dart';
@@ -50,7 +49,7 @@ Future<void> testSpendP2wkhToP2wkh(ECPrivate sWallet, ECPrivate rWallet) async {
       value: BigInt.one,
       changeAddress: changeAddress);
   // return;
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2wkh utxo
@@ -76,7 +75,7 @@ Future<void> testSpendP2wkhToP2kh(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: BigInt.one);
   // return;
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2kh utxo
@@ -103,7 +102,7 @@ Future<void> testSpendp2khToP2kh(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: null);
 
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2kh utxo
@@ -128,7 +127,7 @@ Future<void> testSpendp2kToP2kh(ECPrivate sWallet, ECPrivate rWallet) async {
       utxo: utxo,
       estimateFee: estimateFee,
       value: BigInt.zero);
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2kh utxo
@@ -153,7 +152,7 @@ Future<void> testSpendp2khToP2wkh(ECPrivate sWallet, ECPrivate rWallet) async {
       utxo: utxo,
       estimateFee: estimateFee,
       value: null);
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2kh utxo
@@ -177,7 +176,7 @@ Future<void> testSpendp2khToP2sh(ECPrivate sWallet, ECPrivate rWallet) async {
       utxo: utxo,
       estimateFee: estimateFee,
       value: null);
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2wpkh utxo
@@ -204,7 +203,7 @@ Future<void> testSpendp2wpkhToP2sh(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: BigInt.from(1056000));
 
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2sh utxo
@@ -231,7 +230,7 @@ Future<void> testSpendp2shToP2sh(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: BigInt.one);
 
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2sh utxo
@@ -259,7 +258,7 @@ Future<void> testSpendp2shToP2kh(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: BigInt.zero);
 
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2sh utxo
@@ -287,7 +286,7 @@ Future<void> testSpendp2shToP2wpkh(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: BigInt.zero);
 
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2pkh utxo
@@ -315,7 +314,7 @@ Future<void> testSpendp2pkhToP2pk(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: null);
 
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2wpkh utxo
@@ -343,7 +342,7 @@ Future<void> testSpendp2wpkhToP2k(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: BigInt.one);
 
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
 
 /// spend p2sh utxo
@@ -370,5 +369,5 @@ Future<void> testSpendp2shToP2k(ECPrivate sWallet, ECPrivate rWallet) async {
       estimateFee: estimateFee,
       value: BigInt.from(105999));
 
-  await testRpc.sendRawTransaction(digit.$1);
+  await testRpc.sendRawTransaction(digit.item1);
 }
