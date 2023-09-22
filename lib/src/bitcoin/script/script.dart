@@ -69,8 +69,8 @@ class Script {
         index = index + bytesToRead;
       } else {
         final viAndSize = viToInt(scriptraw.sublist(index, index + 9));
-        int dataSize = viAndSize.$1;
-        int size = viAndSize.$2;
+        int dataSize = viAndSize.item1;
+        int size = viAndSize.item2;
         final lastIndex = (index + size + dataSize) > scriptraw.length
             ? scriptraw.length
             : (index + size + dataSize);
@@ -147,5 +147,13 @@ class Script {
   @override
   String toString() {
     return script.join(",");
+  }
+}
+
+extension ElementAtOrNullX<T> on List<T> {
+  T? elementAtOrNull(int index) {
+    if (index >= length) return null;
+
+    return elementAt(index);
   }
 }

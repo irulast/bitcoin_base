@@ -62,7 +62,8 @@ abstract class BipAddress implements BitcoinAddress {
       case AddressType.p2sh:
         tobytes = Uint8List.fromList([networkType.p2shPrefix, ...tobytes]);
         break;
-      case const (AddressType.p2pkh) || const (AddressType.p2pk):
+      case AddressType.p2pkh:
+      case AddressType.p2pk:
         tobytes = Uint8List.fromList([networkType.p2pkhPrefix, ...tobytes]);
         break;
       default:

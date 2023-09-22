@@ -46,11 +46,11 @@ abstract class SegwitAddress implements BitcoinAddress {
     if (convert == null) {
       throw ArgumentError("Invalid value for parameter address.");
     }
-    final version = convert.$1;
+    final version = convert.item1;
     if (version != segwitNumVersion) {
       throw ArgumentError("Invalid segwit version.");
     }
-    return bytesToHex(convert.$2);
+    return bytesToHex(convert.item2);
   }
 
   /// returns the address's string encoding (Bech32)

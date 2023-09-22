@@ -7,9 +7,10 @@ import 'package:bitcoin_base/src/bitcoin/script/output.dart';
 import 'package:bitcoin_base/src/bitcoin/script/script.dart';
 import 'package:bitcoin_base/src/bitcoin/script/transaction.dart';
 import 'package:bitcoin_base/src/crypto/ec/ec_public.dart';
+import 'package:tuple/tuple.dart';
 import './utxo.dart';
 
-(String, String) spendP2pkhToP2pkh({
+Tuple2<String, String> spendP2pkhToP2pkh({
   required P2pkhAddress receiver,
   required ECPublic senderPub,
   required NetworkInfo networkType,
@@ -76,5 +77,5 @@ import './utxo.dart';
         sighash: sighash,
         trSize: tx.getVSize());
   }
-  return (tx.serialize(), tx.txId());
+  return Tuple2(tx.serialize(), tx.txId());
 }

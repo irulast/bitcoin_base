@@ -7,6 +7,7 @@ import 'package:bitcoin_base/src/crypto/ec/ec_encryption.dart' as ec;
 import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
 import 'package:bitcoin_base/src/models/network.dart';
 import 'package:bitcoin_base/src/base58/base58.dart' as bs;
+import 'package:tuple/tuple.dart';
 
 class HdWallet {
   static const String _bitcoinKey = "Bitcoin seed";
@@ -135,7 +136,8 @@ class HdWallet {
     return regex.hasMatch(path);
   }
 
-  static (bool, Uint8List) isRootKey(String xPrivateKey, NetworkInfo network,
+  static Tuple2<bool, Uint8List> isRootKey(
+      String xPrivateKey, NetworkInfo network,
       {bool isPublicKey = false}) {
     final dec = bs.base58.decodeCheck(xPrivateKey);
     if (dec.length != 78) {
@@ -152,19 +154,19 @@ class HdWallet {
         ? network.extendPublic[version]!
         : network.extendPrivate[version]!;
     final prefix = hexToBytes("${networkPrefix}000000000000000000");
-    return (bytesListEqual(prefix, dec.sublist(0, prefix.length)), dec);
+    return Tuple2(bytesListEqual(prefix, dec.sublist(0, prefix.length)), dec);
   }
 
   factory HdWallet.fromXPrivateKey(String xPrivateKey,
       {bool? foreRootKey, NetworkInfo network = NetworkInfo.BITCOIN}) {
     final check = isRootKey(xPrivateKey, network);
     if (foreRootKey != null) {
-      if (check.$1 != foreRootKey) {
+      if (check.item1 != foreRootKey) {
         throw ArgumentError(
             "is not valid ${foreRootKey ? "rootXPrivateKey" : "xPrivateKey"}");
       }
     }
-    final decode = _decodeXKeys(check.$2);
+    final decode = _decodeXKeys(check.item2);
     final chain = decode[4];
     final private = ECPrivate.fromBytes(decode[5]);
     final index = intFromBytes(decode[3], Endian.big);
@@ -214,12 +216,12 @@ class HdWallet {
       {bool? forceRootKey, NetworkInfo network = NetworkInfo.BITCOIN}) {
     final check = isRootKey(xPublicKey, network, isPublicKey: true);
     if (forceRootKey != null) {
-      if (check.$1 != forceRootKey) {
+      if (check.item1 != forceRootKey) {
         throw ArgumentError(
             "is not valid ${forceRootKey ? "rootPublicKey" : "publicKey"}");
       }
     }
-    final decode = _decodeXKeys(check.$2, isPublic: true);
+    final decode = _decodeXKeys(check.item2, isPublic: true);
     final chain = decode[4];
     final publicKey = ECPublic.fromBytes(decode[5]);
     final index = intFromBytes(decode[3], Endian.big);

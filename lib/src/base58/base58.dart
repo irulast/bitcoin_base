@@ -12,7 +12,7 @@ final base58 = Base(_btc);
 class Base {
   final String alphabet;
   // ignore: non_constant_identifier_names
-  Map<String, int> ALPHABET_MAP = <String, int>{};
+  var ALPHABET_MAP = <String, int>{};
   late final int _base;
 
   late final String _leader;
@@ -35,7 +35,7 @@ class Base {
     if (source.isEmpty) {
       return "";
     }
-    List<int> digits = [0];
+   var digits = [0];
 
     for (var i = 0; i < source.length; ++i) {
       var carry = source[i];
@@ -66,7 +66,7 @@ class Base {
     if (string.isEmpty) {
       throw ArgumentError('Non-base$_base character');
     }
-    List<int> bytes = [0];
+    var bytes = [0];
     for (var i = 0; i < string.length; i++) {
       var value = ALPHABET_MAP[string[i]];
       if (value == null) {
