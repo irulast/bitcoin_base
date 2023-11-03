@@ -1,4 +1,4 @@
-import 'package:bitcoin_base_i/bitcoin_base.dart';
+import 'package:bitcoin_base_i/bitcoin_base_i.dart';
 import 'package:bitcoin_base_i/src/models/network.dart';
 import './transactions/spend_p2kh_to_p2k.dart';
 import './transactions/spend_p2kh_to_p2kh.dart';
