@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:bitcoin_base/src/base58/base58.dart' as bs58;
-import 'package:bitcoin_base/src/crypto/crypto.dart';
-import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
+import 'package:bitcoin_base_i/src/base58/base58.dart' as bs58;
+import 'package:bitcoin_base_i/src/crypto/crypto.dart';
+import 'package:bitcoin_base_i/src/formating/bytes_num_formating.dart';
 import 'package:convert/convert.dart';
 
 bool isValidAddress(String address) {

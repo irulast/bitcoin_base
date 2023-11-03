@@ -1,13 +1,13 @@
 import 'dart:typed_data';
-import 'package:bitcoin_base/src/bitcoin/address/address.dart';
-import 'package:bitcoin_base/src/bitcoin/address/core.dart';
-import 'package:bitcoin_base/src/bitcoin/address/segwit_address.dart';
-import 'package:bitcoin_base/src/bitcoin/constant/constant.dart';
-import 'package:bitcoin_base/src/bitcoin/script/script.dart';
-import 'package:bitcoin_base/src/crypto/crypto.dart';
-import 'package:bitcoin_base/src/crypto/ec/ec_encryption.dart';
-import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
-import 'package:bitcoin_base/src/formating/magic_prefix.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/address.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/core.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/segwit_address.dart';
+import 'package:bitcoin_base_i/src/bitcoin/constant/constant.dart';
+import 'package:bitcoin_base_i/src/bitcoin/script/script.dart';
+import 'package:bitcoin_base_i/src/crypto/crypto.dart';
+import 'package:bitcoin_base_i/src/crypto/ec/ec_encryption.dart';
+import 'package:bitcoin_base_i/src/formating/bytes_num_formating.dart';
+import 'package:bitcoin_base_i/src/formating/magic_prefix.dart';
 import 'ec_encryption.dart' as ec;
 
 class ECPublic {

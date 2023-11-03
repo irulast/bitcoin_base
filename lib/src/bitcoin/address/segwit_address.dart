@@ -1,11 +1,11 @@
-import 'package:bitcoin_base/src/bech32/bech32.dart' as bech32;
-import 'package:bitcoin_base/src/crypto/crypto.dart';
-import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
+import 'package:bitcoin_base_i/src/bech32/bech32.dart' as bech32;
+import 'package:bitcoin_base_i/src/crypto/crypto.dart';
+import 'package:bitcoin_base_i/src/formating/bytes_num_formating.dart';
 
-import 'package:bitcoin_base/src/models/network.dart';
-import 'package:bitcoin_base/src/bitcoin/address/core.dart';
-import 'package:bitcoin_base/src/bitcoin/constant/constant.dart';
-import 'package:bitcoin_base/src/bitcoin/script/script.dart';
+import 'package:bitcoin_base_i/src/models/network.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/core.dart';
+import 'package:bitcoin_base_i/src/bitcoin/constant/constant.dart';
+import 'package:bitcoin_base_i/src/bitcoin/script/script.dart';
 
 abstract class SegwitAddress implements BitcoinAddress {
   /// Represents a Bitcoin segwit address

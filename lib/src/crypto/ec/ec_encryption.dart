@@ -1,8 +1,8 @@
 // ignore_for_file: non_constant_identifier_names
 import 'dart:typed_data';
-import 'package:bitcoin_base/src/crypto/crypto.dart';
-import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
-import 'package:bitcoin_base/src/formating/der.dart' show listBigIntToDER;
+import 'package:bitcoin_base_i/src/crypto/crypto.dart';
+import 'package:bitcoin_base_i/src/formating/bytes_num_formating.dart';
+import 'package:bitcoin_base_i/src/formating/der.dart' show listBigIntToDER;
 import "package:pointycastle/ecc/curves/secp256k1.dart" show ECCurve_secp256k1;
 import "package:pointycastle/api.dart"
     show PrivateKeyParameter, PublicKeyParameter;

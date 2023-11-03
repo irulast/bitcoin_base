@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:bitcoin_base/src/bitcoin/constant/constant.dart';
+import 'package:bitcoin_base_i/src/bitcoin/constant/constant.dart';
 
 /// Helps setting up appropriate sequence. Used to provide the sequence to transaction inputs and to scripts.
 ///

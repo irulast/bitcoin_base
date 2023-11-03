@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:bitcoin_base/src/bitcoin/constant/constant.dart';
-import 'package:bitcoin_base/src/crypto/ec/ec_public.dart';
-import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
+import 'package:bitcoin_base_i/src/bitcoin/constant/constant.dart';
+import 'package:bitcoin_base_i/src/crypto/ec/ec_public.dart';
+import 'package:bitcoin_base_i/src/formating/bytes_num_formating.dart';
 
 import 'script.dart';
 
