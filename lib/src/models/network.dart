@@ -1,6 +1,6 @@
 import 'dart:typed_data';
-import 'package:bitcoin_base/src/bitcoin/address/core.dart';
-import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/core.dart';
+import 'package:bitcoin_base_i/src/formating/bytes_num_formating.dart';
 
 class NetworkInfo {
   final String messagePrefix;

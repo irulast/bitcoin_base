@@ -1,14 +1,14 @@
 import 'dart:typed_data';
-import 'package:bitcoin_base/src/models/network.dart';
-import 'package:bitcoin_base/src/bitcoin/address/address.dart';
-import 'package:bitcoin_base/src/bitcoin/address/segwit_address.dart';
-import 'package:bitcoin_base/src/bitcoin/constant/constant.dart';
-import 'package:bitcoin_base/src/bitcoin/script/input.dart';
-import 'package:bitcoin_base/src/bitcoin/script/output.dart';
-import 'package:bitcoin_base/src/bitcoin/script/script.dart';
-import 'package:bitcoin_base/src/bitcoin/script/transaction.dart';
-import 'package:bitcoin_base/src/bitcoin/script/witness.dart';
-import 'package:bitcoin_base/src/crypto/ec/ec_public.dart';
+import 'package:bitcoin_base_i/src/models/network.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/address.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/segwit_address.dart';
+import 'package:bitcoin_base_i/src/bitcoin/constant/constant.dart';
+import 'package:bitcoin_base_i/src/bitcoin/script/input.dart';
+import 'package:bitcoin_base_i/src/bitcoin/script/output.dart';
+import 'package:bitcoin_base_i/src/bitcoin/script/script.dart';
+import 'package:bitcoin_base_i/src/bitcoin/script/transaction.dart';
+import 'package:bitcoin_base_i/src/bitcoin/script/witness.dart';
+import 'package:bitcoin_base_i/src/crypto/ec/ec_public.dart';
 import 'transactions/utxo.dart';
 import 'package:tuple/tuple.dart';
 

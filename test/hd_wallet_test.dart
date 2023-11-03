@@ -1,7 +1,7 @@
-import 'package:bitcoin_base/src/bip39/bip39.dart';
-import 'package:bitcoin_base/src/bitcoin/address/core.dart';
-import 'package:bitcoin_base/src/hd_wallet/hd_wallet.dart';
-import 'package:bitcoin_base/src/models/network.dart';
+import 'package:bitcoin_base_i/src/bip39/bip39.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/core.dart';
+import 'package:bitcoin_base_i/src/hd_wallet/hd_wallet.dart';
+import 'package:bitcoin_base_i/src/models/network.dart';
 
 void main() {
   const NetworkInfo network = NetworkInfo.TESTNET;

@@ -1,12 +1,12 @@
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:bitcoin_base/src/bip39/bip39.dart';
-import 'package:bitcoin_base/src/bitcoin/address/core.dart';
-import 'package:bitcoin_base/src/crypto/crypto.dart';
-import 'package:bitcoin_base/src/crypto/ec/ec_encryption.dart' as ec;
-import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
-import 'package:bitcoin_base/src/models/network.dart';
-import 'package:bitcoin_base/src/base58/base58.dart' as bs;
+import 'package:bitcoin_base_i/src/bip39/bip39.dart';
+import 'package:bitcoin_base_i/src/bitcoin/address/core.dart';
+import 'package:bitcoin_base_i/src/crypto/crypto.dart';
+import 'package:bitcoin_base_i/src/crypto/ec/ec_encryption.dart' as ec;
+import 'package:bitcoin_base_i/src/formating/bytes_num_formating.dart';
+import 'package:bitcoin_base_i/src/models/network.dart';
+import 'package:bitcoin_base_i/src/base58/base58.dart' as bs;
 import 'package:tuple/tuple.dart';
 
 class HdWallet {

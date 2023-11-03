@@ -1,6 +1,6 @@
 import 'dart:typed_data';
-import 'package:bitcoin_base/src/bitcoin/script/script.dart';
-import 'package:bitcoin_base/src/formating/bytes_num_formating.dart';
+import 'package:bitcoin_base_i/src/bitcoin/script/script.dart';
+import 'package:bitcoin_base_i/src/formating/bytes_num_formating.dart';
 import 'package:tuple/tuple.dart';
 
 /// Represents a transaction output.
@@ -38,11 +38,10 @@ class TxOutput {
     Uint8List lockScript = txoutputraw.sublist(cursor, cursor + vi.item1);
     cursor += vi.item1;
     return Tuple2(
-      TxOutput(
-          amount: BigInt.from(value),
-          scriptPubKey: Script.fromRaw(
-              hexData: bytesToHex(lockScript), hasSegwit: hasSegwit)),
-      cursor
-    );
+        TxOutput(
+            amount: BigInt.from(value),
+            scriptPubKey: Script.fromRaw(
+                hexData: bytesToHex(lockScript), hasSegwit: hasSegwit)),
+        cursor);
   }
 }
